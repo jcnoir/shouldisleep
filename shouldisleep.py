@@ -33,7 +33,7 @@ def is_client_connected():
     ps = subprocess.Popen('netstat', shell=True, stdout=subprocess.PIPE)
     output = ps.communicate()[0]
     for line in output.split('\n'):
-        if 'nfs' in line and 'localhost' in line:
+        if 'localhost:nfs' in line:
             inhibition_reason = "Active NFS session : " + line
             return True
     return False
